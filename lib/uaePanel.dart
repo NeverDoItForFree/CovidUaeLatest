@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:wave_progress_widget/wave_progress.dart';
 
 
 
@@ -63,21 +65,30 @@ class Panels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
-      height: 25,
-      width: 25,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: panelColor,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-          Text(count),
-
-
-        ],
+      child: ClipPath(
+        clipper: WaveClipperOne(reverse: true),
+        child: Container(
+          margin: EdgeInsets.all(3),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: panelColor,
+          ), child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+              Text(count),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  SpinKitThreeBounce(
+                    color : Colors.white,
+                    size:5,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

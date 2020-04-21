@@ -7,6 +7,7 @@ void main(){
     theme: ThemeData(
       primaryColor: Colors.black,
       fontFamily: 'Circular',
+
     ),
 
     home: HomePage(),
