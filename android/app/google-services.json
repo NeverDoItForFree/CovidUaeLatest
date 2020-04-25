@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "503660071580",
+    "firebase_url": "https://covid-uae.firebaseio.com",
+    "project_id": "covid-uae",
+    "storage_bucket": "covid-uae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503660071580:android:ec2e59cc847740e9d27b59",
+        "android_client_info": {
+          "package_name": "com.ajmalaj.covidtrial2.covid_uae_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503660071580-l3uobgnmfa35r8adgjdt5ats8g086p9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAT0TZgFFbIBmmXA5RZgVcduBNJXPFq99Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503660071580-l3uobgnmfa35r8adgjdt5ats8g086p9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

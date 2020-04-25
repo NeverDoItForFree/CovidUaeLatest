@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:wave_progress_widget/wave_progress.dart';
+
 
 
 
@@ -65,13 +65,13 @@ class Panels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ClipPath(
-        clipper: WaveClipperOne(reverse: true),
+
         child: Container(
           margin: EdgeInsets.all(3),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: panelColor,
+
           ), child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -89,7 +89,7 @@ class Panels extends StatelessWidget {
             ],
           ),
         ),
-      ),
+
     );
   }
 }

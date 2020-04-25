@@ -3,6 +3,9 @@ import 'package:covid_uae_2/uaePanel.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:covid_uae_2/indiaPanel.dart';
+
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +14,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Map uaeData;
+  Map indiaData;
+
   fetchUaeData() async {
     http.Response response =
         await http.get('https://corona.lmao.ninja/v2/countries/are ');
@@ -19,9 +24,20 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  fetchIndiaData() async {
+    http.Response response =
+    await http.get('https://corona.lmao.ninja/v2/countries/ind ');
+    setState(() {
+      indiaData = json.decode(response.body);
+    });
+
+  }
+
   @override
   void initState() {
     fetchUaeData();
+    fetchIndiaData();
+
     // TODO: implement initState
     super.initState();
   }
@@ -35,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.black,
         title: Column(
           children: <Widget>[
-            Text('Covid Tracker - UAE'),
+            Text('Covid Tracker - UAE & IN'),
             Text(
               'created by ajmalaj.com',
               style: TextStyle(fontSize: 10),
@@ -44,7 +60,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body:
-
       Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -52,21 +67,13 @@ class _HomePageState extends State<HomePage> {
               child: uaeData == null
                   ? CircularProgressIndicator()
                   : UaePanel(uaeData: uaeData)),
+
           Container(
             child: Column(
               children: <Widget>[
-                Text(
-                  "May Allah Bless UAE & Its People",
-                  style: TextStyle(fontSize: 10),
-                ),
-                Text("visit uae.gov  for official Info"),
-                SpinKitPumpingHeart(
-                  size: 10,
-                  color: Colors.red,
-                ),
+                Text('India Data', style: TextStyle(fontSize: 15),),
                 Container(
-                  margin: EdgeInsets.all(5),
-                  child: Text("Advertisement Area"),
+                    child: indiaData == null ? CircularProgressIndicator() : IndiaPanel(indiaData: indiaData,)
                 ),
                 Container(
                   margin: EdgeInsets.all(5),
@@ -80,7 +87,12 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
     );
   }
 }
+
+
+
+
+
